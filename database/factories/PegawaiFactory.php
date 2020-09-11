@@ -9,7 +9,7 @@ use Faker\Generator as Faker;
 $factory->define(pegawai::class, function (Faker $faker) {
     return [
         'nama_pegawai'  => $faker->name,
-        'jenis_kelamin' => "",
+        'jenis_kelamin' => $faker->randomElement(['Laki-Laki', 'Perempuan']),
         'email'         => $faker->unique()->safeEmail,  
         'alamat'        => $faker->secondaryAddress,
     ];
