@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\pegawai;
 use Illuminate\Http\Request;
 
 class PegawaiController extends Controller
@@ -13,7 +14,11 @@ class PegawaiController extends Controller
      */
     public function index()
     {
-        //
+        $pegawai = pegawai::all();
+        if(request()->ajax()){
+            return datatables()->of($pegawai)->make(true);
+        }
+        return view('pegawai');
     }
 
     /**
